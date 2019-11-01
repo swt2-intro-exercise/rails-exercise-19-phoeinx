@@ -19,4 +19,4 @@
 /nbproject
 
 #Ignore idea files
-/idea/*
+/.idea/*
