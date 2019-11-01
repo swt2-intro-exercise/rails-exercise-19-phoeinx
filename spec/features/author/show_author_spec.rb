@@ -1,9 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Author, type: :model do
+describe "show author page", type: :feature do
 
-  it 'should show not raise any error to visit an existing authors page' do
-    visit authors_path(@alan)
-    expect(page).to have_text()
+  it 'should not raise any error to call show on an existing authors page' do
+    @alan = FactoryBot.create :author
+    visit author_path(@alan)
+    expect(page).to have_text(@alan.first_name)
+    expect(page).to have_text(@alan.last_name)
+    expect(page).to have_text(@alan.homepage)
   end
 end
