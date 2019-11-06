@@ -1,8 +1,7 @@
 FactoryBot.define do
   factory :paper do
-#    title "COMPUTING MACHINERY AND INTELLIGENCE"
-#    venue "Mind 49: 433-460"
-#    year 1950
-#    authors {build_list :author, 1}
+    title { "Great Title" }
+    venue { "Great venue" }
+    year { 1442 }
   end
 end
