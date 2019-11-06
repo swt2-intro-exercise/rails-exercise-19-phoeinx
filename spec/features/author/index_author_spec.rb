@@ -8,7 +8,8 @@ describe "Index author page", type: :feature do
 
   it 'should have table with headings Name and Homepage' do
      visit authors_path
-     expect(page).to have_text("Name")
+     expect(page).to have_css('table')
+     expect(page).to have_text('Name')
      expect(page).to have_text('Homepage')
   end
 
