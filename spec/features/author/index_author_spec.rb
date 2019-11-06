@@ -25,9 +25,21 @@ describe "Index author page", type: :feature do
     expect(page).to have_text(@alan.name)
     expect(page).to have_text(@alan.homepage)
   end
+
   it 'should have link to add new author page' do
     visit authors_path
     expect(page).to have_link 'New author', href: new_author_path
+  end
+
+  it 'should have link to delete an individual authors page' do
+    @alan = FactoryBot.create :author
+    visit authors_path
+    expect(page).to have_link 'Delete', href: author_path(@alan)
+  end
+
+  it 'should destroy author' do
+    @alan = FactoryBot.create :author
+    expect{@alan.destroy}.to change{Author.count}.by(-1)
   end
 
 
