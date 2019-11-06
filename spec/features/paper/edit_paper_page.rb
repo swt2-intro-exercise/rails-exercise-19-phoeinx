@@ -26,5 +26,11 @@ describe "Edit paper page", type: :feature do
     expect(@paper.year).to eq(144)
   end
 
+  it 'should have a single multiple select box' do
+    #doesnt really test as of now
+    visit edit_paper_path(@paper)
+    expect(page).to have_css("select")
+  end
+
 
 end

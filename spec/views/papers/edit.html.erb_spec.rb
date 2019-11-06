@@ -1,3 +1,5 @@
+=begin
+-- only works with automatically generated template
 require 'rails_helper'
 
 RSpec.describe "papers/edit", type: :view do
@@ -22,3 +24,4 @@ RSpec.describe "papers/edit", type: :view do
     end
   end
 end
+=end
