@@ -32,5 +32,18 @@ describe "Edit paper page", type: :feature do
     expect(page).to have_css("select")
   end
 
+  it "should be possible to add multiple authors to a paper" do
+    @paper = paper.new(title: 'Great Title', venue: 'Great venue', year: 1442)
+    @author = FactoryBot.create :author
+    @plagiatist = FactoryBot.create :author
+    @plagiatist.update(last_name: 'P')
+    @paper.authors << @author
+    @paper.authors << @plagiatist
+    visit edit_paper_path(@paper)
+    expect(paper_path(@paper)).to have_text(@author.name)
+    expect(paper_path(@paper)).to have_text(@plagiatist.name)
+  end
+
+
 
 end
