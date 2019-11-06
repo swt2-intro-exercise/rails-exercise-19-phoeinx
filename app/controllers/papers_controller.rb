@@ -30,6 +30,14 @@ class PapersController < ApplicationController
     end
   end
 
+  def index
+    if params[:year]
+      @papers = Paper.year(params[:year])
+    else
+      @papers = Paper.all
+    end
+  end
+
   # PATCH/PUT /papers/1
   def update
     if @paper.update(paper_params)
