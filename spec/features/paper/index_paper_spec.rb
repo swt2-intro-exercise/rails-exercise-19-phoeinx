@@ -42,5 +42,14 @@ describe "Index paper page", type: :feature do
     expect{@paper.destroy}.to change{Paper.count}.by(-1)
   end
 
+  it 'should only show papers published in year 1950 when using page with url parameter year=1950' do
+    @paper1950 = FactoryBot.create :paper
+    @paper1950.update(year: 1950)
+    @paper1968 = FactoryBot.create :paper
+    @paper1968.update(year: 1968)
+    visit papers_path + '?year=1950'
+    expect(page).to have_text(@paper1950.year)
+    expect(page).to_not have_text(@paper1968.year)
+  end
 
 end
