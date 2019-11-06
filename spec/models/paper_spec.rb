@@ -24,7 +24,7 @@ RSpec.describe Paper, type: :model do
   end
 
   it 'should not accept papers with non numerical values for year' do
-    @paper = Paper.new(title: 'Great title', venue: 'Great venue', year: '1442')
+    @paper = Paper.new(title: 'Great title', venue: 'Great venue', year: 'a')
     expect(@paper).to_not be_valid
     @paper.update(year: 1442)
     expect(@paper).to be_valid
